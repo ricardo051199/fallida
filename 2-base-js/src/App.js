@@ -3,7 +3,13 @@ const edad = document.querySelector("#edad-input");
 const genero = document.querySelector("#genero-input");
 const form = document.querySelector("#saludador-form");
 
+
 form.addEventListener("submit", (event) => {
+
+    // Variables
+    var text1 = "";
+    var text2 = "";
+    var text3 = "";
 
     // Definir text1 tomando en cuenta la edad
     if(edad.value < 10 && edad.value > 5){
@@ -45,6 +51,22 @@ form.addEventListener("submit", (event) => {
             text2 = "señara";
         }
     }
+    
+    // Definir text3 tomando en cuenta la hora
+    var today = new Date();
 
-    alert("Hola " + text2 + " " + nombre.value);
+    if(today.getHours() < 12 && today.getHours() > 0){
+        text3 = "buenos dias";
+    }
+
+    if(today.getHours() <= 19 && today.getHours() >= 12){
+        text3 = "buenos tardes";
+    }
+
+    if(today.getHours() < 24 && today.getHours() > 19){
+        text3 = "buenos noches";
+    }
+
+
+    alert("Hola, " + text3 + " " + text2 + " " + nombre.value);
 });
